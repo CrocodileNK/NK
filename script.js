@@ -8,7 +8,6 @@ function moveButtonRandomly() {
   const btnWidth = hoverBtn.offsetWidth;
   const btnHeight = hoverBtn.offsetHeight;
 
-  // Yeni pozisyonlar, ebeveyn sınırları içinde
   const maxX = parentWidth - btnWidth;
   const maxY = parentHeight - btnHeight;
 
@@ -20,11 +19,17 @@ function moveButtonRandomly() {
   hoverBtn.style.top = randomY + 'px';
 }
 
-// Mobil dokunma için hareket ettir
-hoverBtn.addEventListener('touchstart', (e) => {
-  e.preventDefault(); // Dokunma olayının gereksiz tetiklenmesini engelle
+// Dokunma veya tıklama ile her seferinde hareket etsin
+hoverBtn.addEventListener('touchend', (e) => {
+  e.preventDefault();
   moveButtonRandomly();
 });
 
-// Masaüstü için fare üstüne gelince hareket ettir
+hoverBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  moveButtonRandomly();
+});
+
+// Masaüstü için hover ile de hareket ettirebilirsin (opsiyonel)
 hoverBtn.addEventListener('mouseenter', moveButtonRandomly);
+
