@@ -1,7 +1,10 @@
+/* İlk sayfa siyah-beyaz geçişli arka plan */
 body {
   margin: 0;
   padding: 0;
-  background-color: #000;
+  background: linear-gradient(45deg, #000000, #ffffff);
+  background-size: 400% 400%;
+  animation: bgPulse 8s ease infinite;
   font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
@@ -12,6 +15,24 @@ body {
   overflow: visible !important;
 }
 
+@keyframes bgPulse {
+  0%, 100% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+}
+
+/* Sayfa üstü kalpler için arka plan (EVET tıklandığında) gri geçişli olacak - JS ile sınıf eklenecek */
+body.love-mode {
+  background: linear-gradient(45deg, #7a7a7a, #d3d3d3);
+  background-size: 400% 400%;
+  animation: bgPulseGray 10s ease infinite;
+}
+
+@keyframes bgPulseGray {
+  0%, 100% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+}
+
+/* Diğer tüm CSS aynen korunacak */
 .content-wrapper {
   text-align: center;
   position: relative;
@@ -126,6 +147,7 @@ body {
   }
 }
 
+/* Mobil uyum */
 @media (max-width: 600px) {
   .headline h1 {
     font-size: 1.4rem;
