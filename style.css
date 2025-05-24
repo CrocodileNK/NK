@@ -1,8 +1,9 @@
 /* Genel body ayarları */
+/* Genel body ayarları */
 body {
   margin: 0;
   padding: 0;
-  background-color: #000;
+  background-color: #000; /* İlk sayfa siyah */
   font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
@@ -10,30 +11,30 @@ body {
   min-height: 100vh;
   flex-direction: column;
   transition: background-color 0.5s ease;
-  overflow: hidden;
+  overflow: hidden; /* Hareket eden buton ekran dışına çıkmasın */
 }
 
 /* İçerik merkezi */
 .content-wrapper {
   text-align: center;
   position: relative;
-  width: 90%;
-  max-width: 700px;
+  width: 90%;       /* Sabit px yerine % yapıldı */
+  max-width: 700px; /* Maksimum genişlik sınırlandı */
   user-select: none;
 }
 
 /* Başlık */
 .headline h1 {
-  color: #ccc;
+  color: #ccc; /* İlk sayfa gri yazı */
   margin-bottom: 20px;
   transition: color 0.5s ease;
-  font-size: 2rem;
+  font-size: 2rem; /* Daha okunaklı font büyüklüğü */
 }
 
 /* Video/resim kutusu */
 .video-placeholder {
   width: 100%;
-  aspect-ratio: 16/9;
+  aspect-ratio: 16/9; /* Oranı koru */
   background-color: #ccc;
   display: flex;
   align-items: center;
@@ -45,7 +46,7 @@ body {
 }
 
 .video-placeholder img {
-  width: 100%;
+  width: 100%;  /* Resim genişliği konteyneri kaplasın */
   height: auto;
   display: block;
 }
@@ -89,7 +90,7 @@ body {
   transition: transform 0.3s ease;
 }
 
-/* 📱 Mobil Uyum */
+/* 📱 Mobil uyumlu düzenleme */
 @media (max-width: 600px) {
   .headline h1 {
     font-size: 1.4rem;
@@ -111,5 +112,3 @@ body {
     width: 100%;
   }
 }
-
-
