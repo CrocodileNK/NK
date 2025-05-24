@@ -37,7 +37,6 @@ changeBtn.addEventListener('click', () => {
     </video>
   `;
 
-  // body'ye "love-mode" sınıfı ekle (arka plan animasyonu için)
   document.body.classList.add('love-mode');
 
   createHearts();
@@ -69,4 +68,3 @@ function createHearts() {
     }, i * 150);
   }
 }
-
