@@ -10,7 +10,7 @@ body {
   min-height: 100vh;
   flex-direction: column;
   transition: background-color 0.5s ease;
-  overflow: hidden;
+  overflow: visible; /* BURASI ÖNEMLİ: hidden olursa kalpler görünmez */
 }
 
 /* İçerik merkezi */
@@ -20,6 +20,7 @@ body {
   width: 90%;
   max-width: 700px;
   user-select: none;
+  overflow: visible; /* Kalplerin dışarı taşması için */
 }
 
 /* Başlık */
@@ -40,16 +41,11 @@ body {
   justify-content: center;
   margin-bottom: 20px;
   border-radius: 8px;
-  overflow: hidden;
+  overflow: hidden; /* Video/resim sınırları için */
   position: relative;
 }
 
-.video-placeholder img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
+.video-placeholder img,
 .video-placeholder video {
   width: 100%;
   height: 100%;
@@ -98,14 +94,15 @@ body {
 
 /* Kalp animasyonu */
 .heart {
-  position: fixed; /* Sayfa boyunca sabit */
+  position: fixed; /* BURASI ÖNEMLİ */
+  width: 20px;
+  height: 20px;
+  top: -20px;
   background-color: red;
   transform: rotate(45deg);
   animation: fall 4s linear forwards;
   z-index: 9999;
   pointer-events: none;
-  width: 20px;
-  height: 20px;
 }
 
 .heart::before,
@@ -157,3 +154,4 @@ body {
     width: 100%;
   }
 }
+
