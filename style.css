@@ -1,4 +1,4 @@
-/* İlk sayfa: siyah - beyaz geçişli */
+/* İlk sayfa: siyah - beyaz geçişli arka plan */
 body {
   margin: 0;
   padding: 0;
@@ -11,7 +11,6 @@ body {
   align-items: center;
   min-height: 100vh;
   flex-direction: column;
-  transition: background-color 0.5s ease;
   overflow: visible !important;
 }
 
@@ -20,19 +19,17 @@ body {
   50% {background-position: 100% 50%;}
 }
 
-/* EVET tıklandıktan sonra gri tonlarda geçiş (body.love-mode) */
+/* EVET tıklanınca: gri tonlarda arka plan */
 body.love-mode {
   background: linear-gradient(270deg, #4f4f4f, #dcdcdc, #4f4f4f);
   background-size: 600% 600%;
   animation: bgPulseGray 10s ease infinite;
 }
-
 @keyframes bgPulseGray {
   0%, 100% {background-position: 0% 50%;}
   50% {background-position: 100% 50%;}
 }
 
-/* --- diğer CSS aynı --- */
 .content-wrapper {
   text-align: center;
   position: relative;
@@ -41,14 +38,12 @@ body.love-mode {
   user-select: none;
   overflow: visible !important;
 }
-
 .headline h1 {
   color: #ccc;
   margin-bottom: 20px;
   transition: color 0.5s ease;
   font-size: 2rem;
 }
-
 .video-placeholder {
   width: 100%;
   aspect-ratio: 16/9;
@@ -61,7 +56,6 @@ body.love-mode {
   overflow: hidden;
   position: relative;
 }
-
 .video-placeholder img,
 .video-placeholder video {
   width: 100%;
@@ -69,7 +63,6 @@ body.love-mode {
   object-fit: cover;
   border-radius: 8px;
 }
-
 .button-group {
   display: flex;
   justify-content: center;
@@ -79,7 +72,6 @@ body.love-mode {
   margin-top: 10px;
   height: auto;
 }
-
 .change-button, .hover-button {
   padding: 10px 20px;
   font-size: 16px;
@@ -88,17 +80,14 @@ body.love-mode {
   border-radius: 5px;
   user-select: none;
 }
-
 .change-button {
   background-color: #555;
   color: white;
   transition: background 0.3s ease;
 }
-
 .change-button:hover {
   background-color: #333;
 }
-
 .hover-button {
   background-color: #999;
   position: absolute;
@@ -119,7 +108,6 @@ body.love-mode {
   z-index: 9999;
   pointer-events: none;
 }
-
 .heart::before,
 .heart::after {
   content: '';
@@ -129,17 +117,14 @@ body.love-mode {
   background-color: red;
   border-radius: 50%;
 }
-
 .heart::before {
   top: -50%;
   left: 0;
 }
-
 .heart::after {
   top: 0;
   left: -50%;
 }
-
 @keyframes fall {
   to {
     transform: translateY(100vh) rotate(360deg);
@@ -152,153 +137,16 @@ body.love-mode {
   .headline h1 {
     font-size: 1.4rem;
   }
-
   .button-group {
     flex-direction: column;
     align-items: center;
     gap: 15px;
     position: static;
   }
-
   .hover-button {
     position: static;
     width: 100%;
   }
-
-  .change-button {
-    width: 100%;
-  }
-}
-
-  width: 90%;
-  max-width: 700px;
-  user-select: none;
-  overflow: visible !important;
-}
-
-.headline h1 {
-  color: #ccc;
-  margin-bottom: 20px;
-  transition: color 0.5s ease;
-  font-size: 2rem;
-}
-
-.video-placeholder {
-  width: 100%;
-  aspect-ratio: 16/9;
-  background-color: #ccc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  overflow: hidden;
-  position: relative;
-}
-
-.video-placeholder img,
-.video-placeholder video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.button-group {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  position: relative;
-  flex-wrap: wrap;
-  margin-top: 10px;
-  height: auto;
-}
-
-.change-button, .hover-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  user-select: none;
-}
-
-.change-button {
-  background-color: #555;
-  color: white;
-  transition: background 0.3s ease;
-}
-
-.change-button:hover {
-  background-color: #333;
-}
-
-.hover-button {
-  background-color: #999;
-  position: absolute;
-  top: 0;
-  left: 150px;
-  transition: transform 0.3s ease;
-}
-
-/* Kalp animasyonu */
-.heart {
-  position: fixed;
-  width: 20px;
-  height: 20px;
-  top: -20px;
-  background-color: red;
-  transform: rotate(45deg);
-  animation: fall 4s linear forwards;
-  z-index: 9999;
-  pointer-events: none;
-}
-
-.heart::before,
-.heart::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: red;
-  border-radius: 50%;
-}
-
-.heart::before {
-  top: -50%;
-  left: 0;
-}
-
-.heart::after {
-  top: 0;
-  left: -50%;
-}
-
-@keyframes fall {
-  to {
-    transform: translateY(100vh) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-/* Mobil uyum */
-@media (max-width: 600px) {
-  .headline h1 {
-    font-size: 1.4rem;
-  }
-
-  .button-group {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    position: static;
-  }
-
-  .hover-button {
-    position: static;
-    width: 100%;
-  }
-
   .change-button {
     width: 100%;
   }
