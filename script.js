@@ -1,4 +1,4 @@
-// HAYIR butonunu kaçırma
+// HAYIR butonu davranışı
 const hoverBtn = document.getElementById('hoverBtn');
 
 function moveButtonRandomly() {
@@ -24,7 +24,7 @@ hoverBtn.addEventListener('touchstart', moveButtonRandomly);
 hoverBtn.addEventListener('click', moveButtonRandomly);
 hoverBtn.addEventListener('mouseenter', moveButtonRandomly);
 
-// EVET butonuna tıklanınca
+// EVET butonuna tıklama
 const changeBtn = document.getElementById('changeBtn');
 
 changeBtn.addEventListener('click', () => {
@@ -32,38 +32,7 @@ changeBtn.addEventListener('click', () => {
   headline.innerHTML = '<h1>Ben de seni çok seviyorum Hatunum ❤️</h1>';
 
   const mediaBox = document.getElementById('media-box');
-  mediaBox.innerHTML = '<img src="mutlu.jpeg" alt="Mutlu Görsel" />';
+  mediaBox.innerHTML = `
+    <video id="video-love" autoplay muted loop playsinline>
+      <source src="NK11.mp4" type="video/mp4">
 
-  document.body.style.backgroundColor = '#ffe4e1';
-  headline.querySelector('h1').style.color = '#000';
-
-  startHeartRainInBox();
-});
-
-// Kalp animasyonu sadece media kutusunda
-function createHeartInBox() {
-  const mediaBox = document.getElementById('media-box');
-  const heart = document.createElement('div');
-  heart.classList.add('heart');
-
-  const boxWidth = mediaBox.clientWidth;
-  heart.style.left = Math.random() * boxWidth + 'px';
-
-  const size = Math.random() * 20 + 10;
-  heart.style.width = size + 'px';
-  heart.style.height = size + 'px';
-
-  mediaBox.appendChild(heart);
-
-  setTimeout(() => {
-    heart.remove();
-  }, 4000);
-}
-
-function startHeartRainInBox() {
-  const interval = setInterval(createHeartInBox, 150);
-
-  setTimeout(() => {
-    clearInterval(interval);
-  }, 5000);
-}
