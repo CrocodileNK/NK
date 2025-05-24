@@ -1,0 +1,84 @@
+/* Genel body ayarları */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000; /* İlk sayfa siyah */
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  transition: background-color 0.5s ease;
+  overflow: hidden; /* Hareket eden buton ekran dışına çıkmasın */
+}
+
+/* İçerik merkezi */
+.content-wrapper {
+  text-align: center;
+  position: relative;
+  width: 700px; /* Video ve resim genişliği artı biraz boşluk */
+  user-select: none;
+}
+
+/* Başlık */
+.headline h1 {
+  color: #ccc; /* İlk sayfa gri yazı */
+  margin-bottom: 20px;
+  transition: color 0.5s ease;
+}
+
+/* Video/resim kutusu */
+.video-placeholder {
+  width: 640px;
+  height: 360px;
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Buton grubu */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+  height: 50px; /* Butonların hareket edebilmesi için yükseklik */
+}
+
+/* Butonlar */
+.change-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #555;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.change-button:hover {
+  background-color: #333;
+}
+
+.hover-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #999;
+  border: none;
+  border-radius: 5px;
+  position: absolute; /* Hareket için absolute */
+  top: 0;
+  left: 150px; /* Başlangıç pozisyonu */
+  transition: transform 0.3s ease;
+  user-select: none;
+}
+
+
