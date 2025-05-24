@@ -2,8 +2,8 @@ const hoverBtn = document.getElementById('hoverBtn');
 
 function moveButtonRandomly() {
   const parent = hoverBtn.parentElement;
-  const parentWidth = parent.offsetWidth;
-  const parentHeight = parent.offsetHeight;
+  const parentWidth = parent.clientWidth;
+  const parentHeight = parent.clientHeight;
 
   const btnWidth = hoverBtn.offsetWidth;
   const btnHeight = hoverBtn.offsetHeight;
@@ -19,17 +19,17 @@ function moveButtonRandomly() {
   hoverBtn.style.top = randomY + 'px';
 }
 
-// Dokunma veya tıklama ile her seferinde hareket etsin
-hoverBtn.addEventListener('touchend', (e) => {
-  e.preventDefault();
+// Dokunma başladığında hareket ettir (touchstart daha duyarlı)
+hoverBtn.addEventListener('touchstart', (e) => {
+  // e.preventDefault(); // Bunu kaldırıyoruz deneyelim
   moveButtonRandomly();
 });
 
+// Tıklama için (mouse ve bazı mobil cihazlar)
 hoverBtn.addEventListener('click', (e) => {
-  e.preventDefault();
+  // e.preventDefault(); // Gerek yoksa kaldır
   moveButtonRandomly();
 });
 
-// Masaüstü için hover ile de hareket ettirebilirsin (opsiyonel)
+// Opsiyonel: Masaüstünde hover hareketi
 hoverBtn.addEventListener('mouseenter', moveButtonRandomly);
-
