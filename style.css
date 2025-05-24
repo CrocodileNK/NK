@@ -2,36 +2,38 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #000; /* İlk sayfa siyah */
+  background-color: #000;
   font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   flex-direction: column;
   transition: background-color 0.5s ease;
-  overflow: hidden; /* Hareket eden buton ekran dışına çıkmasın */
+  overflow: hidden;
 }
 
 /* İçerik merkezi */
 .content-wrapper {
   text-align: center;
   position: relative;
-  width: 700px; /* Video ve resim genişliği artı biraz boşluk */
+  width: 90%;
+  max-width: 700px;
   user-select: none;
 }
 
 /* Başlık */
 .headline h1 {
-  color: #ccc; /* İlk sayfa gri yazı */
+  color: #ccc;
   margin-bottom: 20px;
   transition: color 0.5s ease;
+  font-size: 2rem;
 }
 
 /* Video/resim kutusu */
 .video-placeholder {
-  width: 640px;
-  height: 360px;
+  width: 100%;
+  aspect-ratio: 16/9;
   background-color: #ccc;
   display: flex;
   align-items: center;
@@ -42,24 +44,36 @@ body {
   position: relative;
 }
 
+.video-placeholder img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* Buton grubu */
 .button-group {
   display: flex;
   justify-content: center;
   gap: 20px;
   position: relative;
-  height: 50px; /* Butonların hareket edebilmesi için yükseklik */
+  flex-wrap: wrap;
+  margin-top: 10px;
+  height: auto;
 }
 
 /* Butonlar */
-.change-button {
+.change-button, .hover-button {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
-  background-color: #555;
-  color: white;
   border: none;
   border-radius: 5px;
+  user-select: none;
+}
+
+.change-button {
+  background-color: #555;
+  color: white;
   transition: background 0.3s ease;
 }
 
@@ -68,17 +82,34 @@ body {
 }
 
 .hover-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
   background-color: #999;
-  border: none;
-  border-radius: 5px;
-  position: absolute; /* Hareket için absolute */
+  position: absolute;
   top: 0;
-  left: 150px; /* Başlangıç pozisyonu */
+  left: 150px;
   transition: transform 0.3s ease;
-  user-select: none;
+}
+
+/* 📱 Mobil Uyum */
+@media (max-width: 600px) {
+  .headline h1 {
+    font-size: 1.4rem;
+  }
+
+  .button-group {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    position: static;
+  }
+
+  .hover-button {
+    position: static;
+    width: 100%;
+  }
+
+  .change-button {
+    width: 100%;
+  }
 }
 
 
