@@ -1,4 +1,3 @@
-// HAYIR butonu davranışı
 const hoverBtn = document.getElementById('hoverBtn');
 
 function moveButtonRandomly() {
@@ -24,7 +23,6 @@ hoverBtn.addEventListener('touchstart', moveButtonRandomly);
 hoverBtn.addEventListener('click', moveButtonRandomly);
 hoverBtn.addEventListener('mouseenter', moveButtonRandomly);
 
-// EVET butonuna tıklama
 const changeBtn = document.getElementById('changeBtn');
 
 changeBtn.addEventListener('click', () => {
@@ -39,7 +37,6 @@ changeBtn.addEventListener('click', () => {
     </video>
   `;
 
-  // Kalp animasyonu
   createHearts();
 });
 
@@ -51,11 +48,11 @@ function createHearts() {
       const heart = document.createElement('div');
       heart.classList.add('heart');
 
-      // Rastgele X konumu (viewport genişliği içinde)
+      // Sayfa genişliği içinde rastgele sol konum
       heart.style.left = Math.random() * window.innerWidth + 'px';
 
-      // Rastgele büyüklük ve hız
-      const size = Math.random() * 20 + 10; // 10px - 30px
+      // Rastgele boyut
+      const size = Math.random() * 20 + 10;
       heart.style.width = size + 'px';
       heart.style.height = size + 'px';
 
@@ -66,7 +63,6 @@ function createHearts() {
 
       document.body.appendChild(heart);
 
-      // 4 saniye sonra kalbi kaldır (animasyon süresi + biraz ekstra)
       setTimeout(() => {
         heart.remove();
       }, (duration + 0.5) * 1000);
