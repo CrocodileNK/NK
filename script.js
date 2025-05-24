@@ -37,6 +37,9 @@ changeBtn.addEventListener('click', () => {
     </video>
   `;
 
+  // body'ye "love-mode" sınıfı ekle (arka plan animasyonu için)
+  document.body.classList.add('love-mode');
+
   createHearts();
 });
 
@@ -48,16 +51,13 @@ function createHearts() {
       const heart = document.createElement('div');
       heart.classList.add('heart');
 
-      // Sayfa genişliği içinde rastgele sol konum
       heart.style.left = Math.random() * window.innerWidth + 'px';
 
-      // Rastgele boyut
       const size = Math.random() * 20 + 10;
       heart.style.width = size + 'px';
       heart.style.height = size + 'px';
 
-      // Animasyon süresi ve gecikmesi
-      const duration = Math.random() * 3 + 3; // 3-6 saniye
+      const duration = Math.random() * 3 + 3;
       heart.style.animationDuration = duration + 's';
       heart.style.animationDelay = Math.random() * 2 + 's';
 
@@ -69,3 +69,4 @@ function createHearts() {
     }, i * 150);
   }
 }
+
