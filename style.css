@@ -1,9 +1,8 @@
 /* Genel body ayarları */
-/* Genel body ayarları */
 body {
   margin: 0;
   padding: 0;
-  background-color: #000; /* İlk sayfa siyah */
+  background-color: #000; 
   font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
@@ -11,30 +10,30 @@ body {
   min-height: 100vh;
   flex-direction: column;
   transition: background-color 0.5s ease;
-  overflow: hidden; /* Hareket eden buton ekran dışına çıkmasın */
+  overflow: hidden;
 }
 
 /* İçerik merkezi */
 .content-wrapper {
   text-align: center;
   position: relative;
-  width: 90%;       /* Sabit px yerine % yapıldı */
-  max-width: 700px; /* Maksimum genişlik sınırlandı */
+  width: 90%;
+  max-width: 700px;
   user-select: none;
 }
 
 /* Başlık */
 .headline h1 {
-  color: #ccc; /* İlk sayfa gri yazı */
+  color: #ccc;
   margin-bottom: 20px;
   transition: color 0.5s ease;
-  font-size: 2rem; /* Daha okunaklı font büyüklüğü */
+  font-size: 2rem;
 }
 
 /* Video/resim kutusu */
 .video-placeholder {
   width: 100%;
-  aspect-ratio: 16/9; /* Oranı koru */
+  aspect-ratio: 16/9;
   background-color: #ccc;
   display: flex;
   align-items: center;
@@ -46,7 +45,7 @@ body {
 }
 
 .video-placeholder img {
-  width: 100%;  /* Resim genişliği konteyneri kaplasın */
+  width: 100%;
   height: auto;
   display: block;
 }
@@ -90,7 +89,45 @@ body {
   transition: transform 0.3s ease;
 }
 
-/* 📱 Mobil uyumlu düzenleme */
+/* Kalp animasyonu */
+.heart {
+  position: absolute;
+  top: -20px;
+  background-color: red;
+  transform: rotate(45deg);
+  animation: fall 4s linear forwards;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -50%;
+  left: 0;
+}
+
+.heart::after {
+  top: 0;
+  left: -50%;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100%) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Mobil uyum */
 @media (max-width: 600px) {
   .headline h1 {
     font-size: 1.4rem;
@@ -112,3 +149,4 @@ body {
     width: 100%;
   }
 }
+
